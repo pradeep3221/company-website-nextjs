@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════ SEO META TAGS ═══════════════ -->
+  <title>NeuralFlow AI — Intelligent Software for the Modern Era</title>
+  <meta name="description" content="NeuralFlow AI delivers cutting-edge artificial intelligence software solutions — automation, analytics, and machine learning tools built for enterprises and startups alike." />
+  <meta name="keywords" content="AI software, artificial intelligence, machine learning, automation, analytics, NeuralFlow, enterprise AI, deep learning, neural network" />
+  <meta name="author" content="NeuralFlow AI Inc." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://neuralflow.ai/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://neuralflow.ai/" />
+  <meta property="og:title" content="NeuralFlow AI — Intelligent Software for the Modern Era" />
+  <meta property="og:description" content="Build smarter, automate faster, and scale further with NeuralFlow AI's enterprise-grade AI platform." />
+  <meta property="og:image" content="https://neuralflow.ai/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@neuralflowai" />
+  <meta name="twitter:title" content="NeuralFlow AI — Intelligent Software for the Modern Era" />
+  <meta name="twitter:description" content="Build smarter, automate faster, and scale further with NeuralFlow AI." />
+  <meta name="twitter:image" content="https://neuralflow.ai/twitter-card.jpg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NeuralFlow AI",
+    "url": "https://neuralflow.ai",
+    "logo": "https://neuralflow.ai/logo.png",
+    "sameAs": ["https://twitter.com/neuralflowai","https://linkedin.com/company/neuralflowai"],
+    "description": "Enterprise AI software platform for automation, analytics, and machine learning.",
+    "contactPoint": {"@type": "ContactPoint","email": "hello@neuralflow.ai","contactType": "customer support"}
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Three.js + Vanta.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080c14;
+      --surface: #0e1320;
+      --surface2: #141926;
+      --border: rgba(255,255,255,0.07);
+      --border-accent: rgba(0,212,180,0.3);
+      --accent: #00d4b4;
+      --accent2: #5b6ef5;
+      --accent3: #f0516a;
+      --text: #e8eaf2;
+      --muted: #6b7394;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Vanta canvas ── */
+    #vanta-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Layout ── */
+    .page { position: relative; z-index: 1; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,12,20,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 40px rgba(0,212,180,0.06); }
+
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { width: 18px; height: 18px; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      padding: 8px 20px;
+      background: var(--accent);
+      color: #080c14 !important;
+      border-radius: 8px;
+      font-weight: 500 !important;
+      font-size: 0.85rem !important;
+      transition: opacity .2s, transform .15s !important;
+    }
+    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border: 1px solid var(--border-accent);
+      border-radius: 100px;
+      background: rgba(0,212,180,0.06);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeUp .8s ease both;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+      animation: fadeUp .9s .1s ease both;
+    }
+    h1 .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, #c46ef5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 1s .2s ease both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 1s .3s ease both;
+    }
+
+    .btn-primary {
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #080c14;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      font-family: var(--font-body);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,212,180,0.3);
+    }
+    .btn-outline {
+      padding: 14px 32px;
+      border: 1px solid var(--border-accent);
+      color: var(--text);
+      border-radius: 10px;
+      font-weight: 400;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+      font-family: var(--font-body);
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(0,212,180,0.05); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 1s .45s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.04em;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: .8rem;
+    }
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--muted); max-width: 560px; font-weight: 300; }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .feat-card {
+      background: var(--surface);
+      padding: 2.5rem;
+      transition: background .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .feat-card:hover { background: var(--surface2); }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 22px;
+    }
+    .feat-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+      letter-spacing: -0.02em;
+    }
+    .feat-card p { color: var(--muted); font-size: 0.9rem; font-weight: 300; }
+
+    /* ── HOW IT WORKS ── */
+    #how { text-align: center; }
+    .steps {
+      display: flex;
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: calc(16.66% + 20px); right: calc(16.66% + 20px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+      opacity: 0.3;
+    }
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 1px solid var(--border-accent);
+      background: rgba(0,212,180,0.06);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+    .step h4 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .4rem;
+      letter-spacing: -0.02em;
+    }
+    .step p { color: var(--muted); font-size: 0.85rem; font-weight: 300; }
+
+    /* ── PRICING ── */
+    #pricing { text-align: center; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: left;
+      transition: border-color .25s, transform .25s;
+      position: relative;
+    }
+    .price-card:hover { border-color: var(--border-accent); transform: translateY(-4px); }
+    .price-card.popular {
+      border-color: var(--accent);
+      background: linear-gradient(160deg, rgba(0,212,180,0.08), var(--surface));
+    }
+    .popular-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--accent);
+      color: #080c14;
+      font-size: 0.7rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 100px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .plan-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: .5rem; }
+    .plan-price {
+      font-family: var(--font-head);
+      font-size: 2.8rem; font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
+    .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .plan-desc { color: var(--muted); font-size: 0.85rem; margin: .8rem 0 1.5rem; font-weight: 300; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .plan-features li {
+      font-size: 0.85rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .plan-features li::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+    .plan-btn {
+      display: block; text-align: center; margin-top: 2rem;
+      padding: 12px; border-radius: 10px;
+      font-weight: 500; font-size: 0.9rem;
+      text-decoration: none;
+      transition: .2s;
+      font-family: var(--font-body);
+    }
+    .plan-btn-outline {
+      border: 1px solid var(--border-accent);
+      color: var(--text);
+      background: transparent;
+      cursor: pointer;
+    }
+    .plan-btn-outline:hover { background: rgba(0,212,180,0.07); }
+    .plan-btn-fill { background: var(--accent); color: #080c14; }
+    .plan-btn-fill:hover { opacity: .88; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { text-align: center; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+    .testi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: left;
+      transition: border-color .25s;
+    }
+    .testi-card:hover { border-color: var(--border-accent); }
+    .stars { color: #f4c430; font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .testi-text { color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.7; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: white;
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 0.85rem; font-weight: 500; }
+    .testi-role { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── CTA BANNER ── */
+    #cta-section {
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem 6rem;
+    }
+    .cta-banner {
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,212,180,0.1) 0%, rgba(91,110,245,0.12) 50%, rgba(196,110,245,0.08) 100%);
+      border: 1px solid var(--border-accent);
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,180,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 { position: relative; }
+    .cta-banner p { color: var(--muted); margin: 1rem auto 2rem; max-width: 500px; font-weight: 300; position: relative; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand p { color: var(--muted); font-size: 0.85rem; font-weight: 300; margin-top: .8rem; max-width: 260px; }
+    .footer-col h5 {
+      font-family: var(--font-head); font-weight: 700; font-size: 0.8rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 300; transition: color .2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      margin-top: 2.5rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { color: var(--muted); font-size: 0.8rem; font-weight: 300; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--muted); font-size: 0.8rem; text-decoration: none; font-weight: 300; transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── COOKIE BANNER ── */
+    #cookie-banner {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      width: min(600px, calc(100vw - 2rem));
+      background: var(--surface2);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      z-index: 9000;
+      display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      backdrop-filter: blur(16px);
+      animation: slideUp .4s ease both;
+    }
+    #cookie-banner.hidden { display: none; }
+    .cookie-text { flex: 1; min-width: 200px; }
+    .cookie-text strong { font-family: var(--font-head); font-size: 0.95rem; display: block; margin-bottom: .3rem; }
+    .cookie-text p { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
+    .cookie-text a { color: var(--accent); text-decoration: underline; }
+    .cookie-actions { display: flex; gap: .7rem; flex-shrink: 0; }
+    .cookie-btn {
+      padding: 8px 18px;
+      border-radius: 8px; font-size: 0.82rem; font-weight: 500;
+      cursor: pointer; border: none; font-family: var(--font-body);
+      transition: .2s;
+    }
+    .cookie-accept { background: var(--accent); color: #080c14; }
+    .cookie-accept:hover { opacity: .88; }
+    .cookie-decline { background: transparent; color: var(--muted); border: 1px solid var(--border) !important; }
+    .cookie-decline:hover { border-color: var(--border-accent) !important; color: var(--text); }
+
+    /* ── COOKIE POLICY MODAL ── */
+    #cookie-modal {
+      position: fixed; inset: 0; z-index: 9100;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    #cookie-modal.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--surface2);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      max-width: 640px; width: 100%;
+      max-height: 80vh; overflow-y: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      background: transparent; border: none;
+      color: var(--muted); cursor: pointer; font-size: 1.4rem;
+      line-height: 1; padding: 4px 8px; border-radius: 6px;
+      transition: color .2s, background .2s;
+    }
+    .modal-close:hover { color: var(--text); background: var(--border); }
+    .modal-box h2 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+    .modal-box h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin: 1.5rem 0 .5rem; color: var(--accent); }
+    .modal-box p { color: var(--muted); font-size: 0.87rem; font-weight: 300; line-height: 1.8; }
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.82rem; }
+    .cookie-table th, .cookie-table td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+    .cookie-table th { color: var(--accent); font-weight: 600; background: rgba(0,212,180,0.05); }
+    .cookie-table td { color: var(--muted); font-weight: 300; }
+
+    /* ── CHATBOT ── */
+    #chat-btn {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 8000;
+      width: 58px; height: 58px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none;
+      box-shadow: 0 8px 30px rgba(0,212,180,0.35);
+      transition: transform .25s, box-shadow .25s;
+    }
+    #chat-btn:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(0,212,180,0.5); }
+    #chat-btn svg { width: 26px; height: 26px; fill: #080c14; }
+
+    #chat-window {
+      position: fixed; bottom: 6rem; right: 2rem; z-index: 8000;
+      width: min(380px, calc(100vw - 2rem));
+      height: 520px;
+      background: var(--surface2);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      display: flex; flex-direction: column;
+      box-shadow: 0 30px 80px rgba(0,0,0,.7);
+      transform: scale(.9) translateY(20px);
+      opacity: 0; pointer-events: none;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), opacity .25s;
+      overflow: hidden;
+    }
+    #chat-window.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+
+    .chat-header {
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+      flex-shrink: 0;
+    }
+    .chat-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800;
+      color: #080c14;
+    }
+    .chat-header-info { flex: 1; }
+    .chat-header-info strong { font-size: 0.9rem; font-weight: 600; display: block; }
+    .chat-header-info span { font-size: 0.72rem; color: var(--accent); font-weight: 400; }
+    .chat-close {
+      background: transparent; border: none;
+      color: var(--muted); cursor: pointer; font-size: 1.3rem;
+      line-height: 1; padding: 4px; border-radius: 6px;
+      transition: color .2s;
+    }
+    .chat-close:hover { color: var(--text); }
+
+    .chat-messages {
+      flex: 1; overflow-y: auto;
+      padding: 1rem;
+      display: flex; flex-direction: column; gap: .8rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      animation: fadeUp .25s ease both;
+    }
+    .msg-bot {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .msg-user {
+      background: linear-gradient(135deg, rgba(0,212,180,0.2), rgba(91,110,245,0.2));
+      border: 1px solid var(--border-accent);
+      color: var(--text);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .msg-typing {
+      display: flex; gap: 4px; align-items: center;
+      padding: 12px 16px;
+    }
+    .dot-typing {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--muted);
+      animation: bounce 1.2s infinite;
+    }
+    .dot-typing:nth-child(2) { animation-delay: .2s; }
+    .dot-typing:nth-child(3) { animation-delay: .4s; }
+
+    .chat-input-area {
+      padding: .8rem;
+      border-top: 1px solid var(--border);
+      display: flex; gap: .5rem;
+      flex-shrink: 0;
+    }
+    #chat-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color .2s;
+      resize: none;
+    }
+    #chat-input::placeholder { color: var(--muted); }
+    #chat-input:focus { border-color: var(--border-accent); }
+    #chat-send {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--accent);
+      border: none; border-radius: 10px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .2s;
+    }
+    #chat-send:hover { opacity: .85; }
+    #chat-send svg { width: 18px; height: 18px; fill: #080c14; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: .3; }
+    }
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-8px); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .steps { flex-direction: column; align-items: center; }
+      .steps::before { display: none; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ VANTA BACKGROUND ═══════════════ -->
+<div id="vanta-bg"></div>
+
+<div class="page">
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav id="main-nav">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L4 6v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6L12 2z" fill="white" opacity=".9"/>
+          <circle cx="12" cy="11" r="3" fill="#080c14"/>
+        </svg>
+      </div>
+      NeuralFlow<span style="color:var(--accent)">.</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section id="hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Now with GPT-level reasoning engine
+    </div>
+    <h1>
+      Intelligence built for<br />
+      <span class="grad">the age of AI</span>
+    </h1>
+    <p class="hero-sub">
+      NeuralFlow delivers enterprise-grade machine learning, automation, and 
+      analytics infrastructure — so your team can build what matters.
+    </p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Start for free →</a>
+      <button class="btn-outline" onclick="document.getElementById('chat-window').classList.toggle('open')">
+        Talk to AI ✦
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">12<span>k+</span></div>
+        <div class="stat-label">Active Users</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">99<span>.9%</span></div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3<span>x</span></div>
+        <div class="stat-label">Avg Speed Gain</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">180<span>+</span></div>
+        <div class="stat-label">Countries</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURES ═══════════════ -->
+  <section id="features">
+    <div class="reveal">
+      <span class="section-tag">Platform</span>
+      <h2>Everything your AI stack needs</h2>
+      <p class="section-sub">One unified platform to train, deploy, monitor, and scale your machine learning pipelines.</p>
+    </div>
+    <div class="features-grid reveal" style="transition-delay:.1s">
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(0,212,180,0.1)">🧠</div>
+        <h3>Neural Training Engine</h3>
+        <p>Train custom models with auto-tuned hyperparameters. Supports PyTorch, TensorFlow, and JAX natively.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(91,110,245,0.1)">⚡</div>
+        <h3>Real-time Inference</h3>
+        <p>Sub-20ms inference on GPU clusters. Auto-scales to millions of requests with zero cold starts.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(240,81,106,0.1)">📊</div>
+        <h3>AI Analytics Dashboard</h3>
+        <p>Live model drift detection, performance metrics, and explainability reports in a single pane.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(0,212,180,0.1)">🔗</div>
+        <h3>API & Integrations</h3>
+        <p>REST and GraphQL APIs. Pre-built connectors for Salesforce, Snowflake, HubSpot, and 80+ tools.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(196,110,245,0.1)">🛡️</div>
+        <h3>Enterprise Security</h3>
+        <p>SOC 2 Type II certified. End-to-end encryption, VPC isolation, and granular RBAC out of the box.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(244,196,48,0.1)">🤖</div>
+        <h3>LLM Orchestration</h3>
+        <p>Chain, route, and evaluate multiple LLMs. Built-in prompt versioning and A/B testing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+  <section id="how">
+    <div class="reveal">
+      <span class="section-tag">Process</span>
+      <h2>Up and running in minutes</h2>
+      <p class="section-sub" style="margin:0 auto">From data upload to live predictions — no PhD required.</p>
+    </div>
+    <div class="steps reveal" style="transition-delay:.15s">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Connect Your Data</h4>
+        <p>Import from S3, BigQuery, databases, or paste a CSV. We handle the schema.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Train Your Model</h4>
+        <p>Pick a template or configure from scratch. AutoML finds the best architecture.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Deploy Instantly</h4>
+        <p>One-click deploy to our global edge network. Get an API endpoint immediately.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Monitor & Improve</h4>
+        <p>Track accuracy, detect drift, and retrain with new data — automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PRICING ═══════════════ -->
+  <section id="pricing">
+    <div class="reveal">
+      <span class="section-tag">Pricing</span>
+      <h2>Plans that grow with you</h2>
+      <p class="section-sub" style="margin:0 auto">No hidden fees. Cancel anytime.</p>
+    </div>
+    <div class="pricing-grid reveal" style="transition-delay:.1s">
+      <div class="price-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">$0 <span>/month</span></div>
+        <p class="plan-desc">Perfect for prototyping and personal projects.</p>
+        <ul class="plan-features">
+          <li>5 models in production</li>
+          <li>10K API requests / month</li>
+          <li>Community support</li>
+          <li>Basic analytics</li>
+        </ul>
+        <a href="#" class="plan-btn plan-btn-outline">Get started free</a>
+      </div>
+      <div class="price-card popular">
+        <span class="popular-badge">Most popular</span>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">$49 <span>/month</span></div>
+        <p class="plan-desc">For growing teams shipping AI products to users.</p>
+        <ul class="plan-features">
+          <li>Unlimited models</li>
+          <li>2M API requests / month</li>
+          <li>Priority support 24/7</li>
+          <li>Advanced analytics & alerts</li>
+          <li>Custom domains</li>
+          <li>Team collaboration</li>
+        </ul>
+        <a href="#" class="plan-btn plan-btn-fill">Start free trial</a>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">Custom</div>
+        <p class="plan-desc">For organizations with large-scale AI infrastructure needs.</p>
+        <ul class="plan-features">
+          <li>Unlimited everything</li>
+          <li>On-premise or VPC deploy</li>
+          <li>Dedicated CSM</li>
+          <li>SLA guarantees</li>
+          <li>SSO & Audit logs</li>
+          <li>Custom contracts</li>
+        </ul>
+        <a href="#" class="plan-btn plan-btn-outline">Contact sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+  <section id="testimonials">
+    <div class="reveal">
+      <span class="section-tag">Social Proof</span>
+      <h2>Trusted by AI-first teams</h2>
+    </div>
+    <div class="testi-grid reveal" style="transition-delay:.1s">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"NeuralFlow cut our model deployment time from 3 weeks to 2 days. The AutoML engine is genuinely impressive — it outperformed our handcrafted baselines."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AP</div>
+          <div><div class="testi-name">Arjun Patel</div><div class="testi-role">CTO at Quantica Labs</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The real-time inference at scale was a game changer. We're serving 50M predictions/day with near-zero latency. Support team is also world-class."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f0516a,#c46ef5)">SL</div>
+          <div><div class="testi-name">Sara Liu</div><div class="testi-role">Head of ML at Fintera</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"We evaluated six platforms. NeuralFlow won on security, speed, and developer experience. The API docs are excellent and the team ships new features constantly."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f4c430,#ef9f27)">MK</div>
+          <div><div class="testi-name">Michael Keller</div><div class="testi-role">VP Engineering at TrueScale</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA BANNER ═══════════════ -->
+  <div id="cta-section">
+    <div class="cta-banner reveal">
+      <h2>Ready to build with AI?</h2>
+      <p>Join 12,000+ developers and companies using NeuralFlow to ship smarter, faster products.</p>
+      <a href="#" class="btn-primary">Start for free — no credit card needed</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="font-size:1rem">
+          <div class="logo-icon" style="width:26px;height:26px;border-radius:6px">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px">
+              <path d="M12 2L4 6v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6L12 2z" fill="white"/>
+              <circle cx="12" cy="11" r="3" fill="#080c14"/>
+            </svg>
+          </div>
+          NeuralFlow<span style="color:var(--accent)">.</span>
+        </a>
+        <p>Enterprise AI infrastructure for the teams building tomorrow's most important products.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#" onclick="openCookiePolicy()">Cookie Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 NeuralFlow AI Inc. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#" onclick="openCookiePolicy()">Cookie Preferences</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- .page -->
+
+<!-- ═══════════════ COOKIE BANNER ═══════════════ -->
+<div id="cookie-banner">
+  <div class="cookie-text">
+    <strong>🍪 We use cookies</strong>
+    <p>We use essential and analytics cookies to improve your experience. <a href="#" onclick="openCookiePolicy()">Read our Cookie Policy</a>.</p>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-decline" onclick="dismissCookie('declined')">Decline</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookie('accepted')">Accept All</button>
+  </div>
+</div>
+
+<!-- ═══════════════ COOKIE POLICY MODAL ═══════════════ -->
+<div id="cookie-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCookiePolicy()">✕</button>
+    <h2>🍪 Cookie Policy</h2>
+    <p><strong>Last updated:</strong> April 2026</p>
+
+    <h3>What are cookies?</h3>
+    <p>Cookies are small text files placed on your device when you visit our website. They help us provide a better experience, remember your preferences, and understand how our platform is used.</p>
+
+    <h3>Types of cookies we use</h3>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Category</th><th>Purpose</th><th>Duration</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Essential</td><td>Authentication, security, core functionality</td><td>Session</td></tr>
+        <tr><td>Analytics</td><td>Usage stats via anonymized data (no personal info)</td><td>12 months</td></tr>
+        <tr><td>Preferences</td><td>Language, theme, and UI settings</td><td>6 months</td></tr>
+        <tr><td>Marketing</td><td>Personalized ads — only with your consent</td><td>30 days</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Essential cookies</h3>
+    <p>These are strictly necessary to operate our website and cannot be disabled. They include session management, CSRF protection, and load balancing cookies.</p>
+
+    <h3>Analytics cookies</h3>
+    <p>We use anonymized analytics (via Plausible Analytics — no personal data leaves your browser). These help us understand which features are most useful so we can improve the product.</p>
+
+    <h3>Your rights</h3>
+    <p>Under GDPR and CCPA, you have the right to access, correct, or delete your data. You can withdraw consent at any time by clicking "Cookie Preferences" in the footer. For requests, email <a href="mailto:privacy@neuralflow.ai" style="color:var(--accent)">privacy@neuralflow.ai</a>.</p>
+
+    <h3>Third-party cookies</h3>
+    <p>Some features (e.g., embedded videos or social share buttons) may set third-party cookies. We do not control these and recommend reviewing those providers' policies.</p>
+
+    <div style="margin-top:2rem;display:flex;gap:.7rem;flex-wrap:wrap">
+      <button class="cookie-btn cookie-accept" onclick="dismissCookie('accepted');closeCookiePolicy()">Accept All</button>
+      <button class="cookie-btn cookie-decline" style="border:1px solid var(--border)!important" onclick="dismissCookie('declined');closeCookiePolicy()">Decline Non-Essential</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHATBOT ═══════════════ -->
+<button id="chat-btn" title="Chat with NeuralFlow AI" onclick="toggleChat()">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6v-2h12v2zm0-3H6V7h12v2z"/>
+  </svg>
+</button>
+
+<div id="chat-window">
+  <div class="chat-header">
+    <div class="chat-avatar">NF</div>
+    <div class="chat-header-info">
+      <strong>NeuralFlow AI</strong>
+      <span>● Online · Powered by Claude</span>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="msg msg-bot">
+      Hi! I'm the NeuralFlow AI assistant. Ask me anything about our platform — pricing, features, integrations, or getting started. 🚀
+    </div>
+  </div>
+  <div class="chat-input-area">
+    <textarea id="chat-input" placeholder="Ask something..." rows="1"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat()}"
+      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"></textarea>
+    <button id="chat-send" onclick="sendChat()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+
+// ── Vanta NET ──
+window.addEventListener('load', () => {
+  VANTA.NET({
+    el: '#vanta-bg',
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x00d4b4,
+    backgroundColor: 0x080c14,
+    points: 14.00,
+    maxDistance: 22.00,
+    spacing: 18.00
+  });
+});
+
+// ── Nav scroll ──
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+
+// ── Cookie banner ──
+function dismissCookie(choice) {
+  localStorage.setItem('nf_cookie_choice', choice);
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+function openCookiePolicy() {
+  document.getElementById('cookie-modal').classList.add('open');
+}
+function closeCookiePolicy() {
+  document.getElementById('cookie-modal').classList.remove('open');
+}
+window.addEventListener('load', () => {
+  if (localStorage.getItem('nf_cookie_choice')) {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+});
+document.getElementById('cookie-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeCookiePolicy();
+});
+
+// ── Chatbot ──
+let chatHistory = [];
+let isTyping = false;
+
+function toggleChat() {
+  document.getElementById('chat-window').classList.toggle('open');
+}
+
+function appendMsg(text, role) {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + (role === 'user' ? 'msg-user' : 'msg-bot');
+  div.textContent = text;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTyping() {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.id = 'typing-indicator';
+  div.className = 'msg msg-bot msg-typing';
+  div.innerHTML = '<div class="dot-typing"></div><div class="dot-typing"></div><div class="dot-typing"></div>';
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+async function sendChat() {
+  if (isTyping) return;
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  appendMsg(text, 'user');
+  chatHistory.push({ role: 'user', content: text });
+  isTyping = true;
+  showTyping();
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are the NeuralFlow AI assistant — a helpful, knowledgeable, and friendly support agent for NeuralFlow AI, an enterprise AI software platform. 
+        
+NeuralFlow offers: neural model training, real-time inference, AI analytics, LLM orchestration, and enterprise security. Pricing: Starter (free), Pro ($49/month), Enterprise (custom). 
+
+Keep answers concise, warm, and on-brand. If asked about technical topics outside NeuralFlow, answer helpfully but briefly. Use emojis sparingly to keep tone friendly.`,
+        messages: chatHistory
+      })
+    });
+
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "Sorry, I couldn't get a response. Please try again!";
+    removeTyping();
+    chatHistory.push({ role: 'assistant', content: reply });
+    appendMsg(reply, 'bot');
+  } catch (err) {
+    removeTyping();
+    appendMsg("Oops — something went wrong. Please try again in a moment!", 'bot');
+  }
+
+  isTyping = false;
+}
+
+</script>
+</body>
+</html>
